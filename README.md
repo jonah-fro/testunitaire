@@ -1,2 +1,5 @@
 # unit_test
-Unit test Jest
+Unit test with Jest
+
+# How to execute test ?
+npm test
