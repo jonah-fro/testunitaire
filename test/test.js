@@ -1,6 +1,5 @@
 const isAnagram = require('../src/anagram');
 
-
 /*
 
 * Anagram Testing file
