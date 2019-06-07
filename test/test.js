@@ -105,7 +105,7 @@ test('Admin should be in usernames', () => {
 // Working with async data
 
 // Async Await since ES7
-test('User fetched name should be Geoffrey Beauny', async () => {
+test('User fetched name should be Leanne Graham', async () => {
   const data = await functions.fetchUser();
   // Complete here
 });
