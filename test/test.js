@@ -84,7 +84,7 @@ test('User should be Marc Antoine object', () => {
 });
 
 // Less than and greater than
-test('Should be under 1000', () => {
+test('Should be under or equal 1000', () => {
   const load1 = 500;
   const load2 = 500;
   // Complete here
