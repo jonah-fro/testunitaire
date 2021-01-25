@@ -11,23 +11,16 @@ expect(isAnagram).toBeDefined();
 });
 
 test('"cinema" is an anagram of "iceman"', () => {
-  const c = "cinema";
-  const i = "iceman";
-  expect (c + i) .toBe(isAnagram);
+  expect(isAnagram('cinema', 'iceman')).toBeTruthy();
 });
 
 test('"Dormitory" is an anagram of "dirty room##"', () => {
-  const d = "Dormitory";
-  const dd = "dirty room##";
-  expect(d + dd).toBe(isAnagram);
+  expect(isAnagram('Dormitory', 'dirty room##')).toBeTruthy();
 });
 
 test('"Hello" is NOT an anagram of "Aloha"', () => {
-  const h = "Hello";
-  const a = "Aloha";
-  expect (h + a).not.toBe(isAnagram);
+  expect(isAnagram('Hello', 'Aloha')).toBeFalsy();
 });
-
 /*
 
 * Various functions Testing file
@@ -55,13 +48,12 @@ describe('Checking Names', () => {
 });
 
 test('Adds 2 + 2 to equal 4', () => {
-  expect(2 + 2).toBe(4);
+  expect(functions.add(2, 2)).toBe(4);
 });
 
 test('Adds 2 + 2 to NOT equal 5', () => {
-  expect(2 + 2).not.toBe(5);
+  expect(functions.add(2, 2)).not.toBe(5);
 });
-
 /*
 
 * Informations
@@ -76,21 +68,19 @@ test('Adds 2 + 2 to NOT equal 5', () => {
 // toBeFalsy matches anything that an if statement treats as false
 
 test('Should be null', () => {
-  const n = null;
-  expect(n).toBeNull();
+  expect(functions.isNull()).toBeNull();
 });
 
 // toBeFalsy
 test('Should be falsy', () => {
-  const f = false;
-  expect(f).toBeFalsy();
+  expect(functions.isNull()).toBeFalsy();
 });
-
 // toEqual
 test('User should be Marc Antoine object', () => {
-  const user = {user1: "Marc"};
-  user['user2'] = "Antoine";
-  expect(user).toEqual({user1: "Marc", user2: "Antoine"});
+  expect(functions.createUser()).toEqual({
+    firstName: 'Marc', 
+    lastName: 'Antoine'
+  })
 });
 
 // Less than and greater than
@@ -102,7 +92,7 @@ test('Should be under or equal 1000', () => {
 
 // Regex
 test('There is no I in the word team', () => {
-  expect('team').not.toMatch(/I/);
+  expect(functions.checkValue('team')).not.toMatch(/I/);
 });
 
 // Arrays
@@ -116,7 +106,7 @@ test('Admin should be in usernames', () => {
 // Async Await since ES7
 test('User fetched name should be Leanne Graham', async () => {
   const data = await functions.fetchUser();
-  expect(data).toBe('Leanne Graham');
+  expect(data.name).toBe('Leanne Graham');
 });
 
 /*
@@ -131,15 +121,10 @@ test('reverseString function exists', () => {
   expect(reverseString).toBeDefined();
 });
 
-test('String reverses', () done => {
-  function reverseString(Jonah) {
-    try {
-
-    }
-  }
-  expect("Jonah").toBe(reverseString);
+test('String reverses', () => {
+  expect(reverseString('Jonah')).toBe('hanoj');
 });
 
 test('String reverses with uppercase', () => {
-  expect("JONAH").toBe(reverseString);
+  expect(reverseString('JONAH')).toBe('hanoj');
 });
